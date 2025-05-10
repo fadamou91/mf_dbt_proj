@@ -1,0 +1,12 @@
+#dddd
+sources :
+      - name: landing
+        database: fadamou
+        schema: sh_landing
+        tables:
+           - name: tbs_orders
+           - name: tbs_order_details
+           - name: tbs_customers
+           - name: tbs_products
+           - name: tbs_inventory
+           - name: tbs_suppliers
