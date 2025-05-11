@@ -32,12 +32,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   mf_dbt_proj:
      0_staging:
-       +schenma: sh_analytics
+       +schema: sh_analytics
      1_dataware:
-       +schenma: sh_analytics
+       +schema: sh_analytics
        +materialized: table
      1_datamart:
-       +schenma: sh_reports
+       +schema: sh_reports
        +materialized: table
 
  
