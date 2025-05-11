@@ -31,5 +31,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   mf_dbt_proj:
-    # Config indicated by + and applies to all files under models
-      +materialized: view
+     0_staging:
+       +schenma: sh_analytics
+     1_dataware:
+       +schenma: sh_analytics
+       +materialized: table
+     1_datamart:
+       +schenma: sh_reports
+       +materialized: table
+
+ 
