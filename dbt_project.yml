@@ -1,43 +1,30 @@
-
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
-name: 'mf_dbt_proj'
-version: '1.0.0'
-
-# This setting configures which "profile" dbt uses for this project.
-profile: 'mf_dbt_proj'
-
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
-clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
-
-
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
+name: mf_dbt_proj
+profile: mf_dbt_proj
+version: 1.0.0
+model-paths:
+  - models
+analysis-paths:
+  - analyses
+test-paths:
+  - tests
+seed-paths:
+  - seeds
+macro-paths:
+  - macros
+snapshot-paths:
+  - snapshots
+clean-targets:
+  - target
+  - dbt_packages
 models:
   mf_dbt_proj:
-     0_staging:
-       +schema: sh_analytics
-     1_dataware:
-       +schema: sh_analytics
-       +materialized: table
-     1_datamart:
-       +schema: sh_reports
-       +materialized: table
-
- 
+    0_staging:
+      +schema: sh_analytics
+    1_dataware:
+      +schema: sh_analytics
+      +materialized: table
+    1_datamart:
+      +schema: sh_reports
+      +materialized: table
+flags:
+  require_generic_test_arguments_property: true
